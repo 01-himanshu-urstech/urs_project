@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
                 {/* fixed ratio on small to avoid zero height, then let content grow on md+ */}
                 <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-[200px] lg:h-[250px]">
                 <Image
-                    src="/About/image.jpg"
+                    src="/About/whyUshero-img.jpg"
                     alt="hero-image"
                     fill
                     sizes="(max-width: 640px) 92vw, (max-width: 768px) 83vw, 66vw"
