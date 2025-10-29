@@ -85,7 +85,7 @@ const LoginSignupCard: React.FC = () => {
       {/* Right Side (Login Form) */}
       <div className="w-1/2 bg-white px-12 py-16 flex flex-col justify-center">
         <h2 className="text-3xl font-bold text-[#0B0534] mb-9">
-          Log in to <span className="text-orange-300">Trainer Aggregator</span>
+          Log in to <span className="text-orange-300">Skill Strategix</span>
         </h2>
        
 

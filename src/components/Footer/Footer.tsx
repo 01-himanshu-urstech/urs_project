@@ -10,16 +10,16 @@ export default function Footer() {
         {/* Logo and Description */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-3 mb-4">
-            <div className="bg-white rounded-full p-2">
+            <div className=" rounded-full p-2">
               <Image 
-                src="/logo.png" 
-                alt="URSTECH Solution" 
+                src="/properties/icononly_transparent_nobuffer.png" 
+                alt="skill strategix" 
                 width={40} 
                 height={40}
-                className="w-10 h-10"
+                className="w-12 h-12 object-contain"
               />
             </div>
-            <span className="font-bold text-xl tracking-wide">Trainer Aggregator</span>
+            <span className="font-bold text-xl tracking-wide">Skill Strategix</span>
           </div>
           <p className="text-sm text-white/95 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam hic ipsa labore quisquam iusto ipsum atque veritatis? Quis quam, at nisi possimus quod beatae totam corporis esse explicabo, ipsam, autem officia ea!

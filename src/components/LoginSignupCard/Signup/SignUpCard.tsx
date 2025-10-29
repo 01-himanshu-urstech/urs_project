@@ -136,7 +136,7 @@ const LoginSignupCard: React.FC = () => {
             backgroundPosition: "center",
           }}
         ></div>
-        <div className="absolute inset-0 bg-[#fdba74]/50"></div>
+        <div className="absolute inset-0 bg-orange-400/50"></div>
         <div className="relative z-10 text-center">
           <h2 className="text-4xl font-bold mb-4">Hello, Friend!</h2>
           <p className="text-base font-medium mb-6 max-w-xs">
@@ -146,7 +146,7 @@ const LoginSignupCard: React.FC = () => {
           </p>
           <Link
             href="/login"
-            className="bg-white text-orange-300 font-bold px-8 py-2 rounded-full"
+            className="bg-white text-orange-400 font-bold px-8 py-2 rounded-full"
           >
             Login
           </Link>
@@ -159,7 +159,7 @@ const LoginSignupCard: React.FC = () => {
           <>
             <h2 className="text-3xl font-bold text-[#0B0534] mb-9">
               SignUp to{" "}
-              <span className="text-orange-300">Trainer Aggregator</span>
+              <span className="text-orange-400">Skill Strategix</span>
             </h2>
 
             <input
@@ -229,7 +229,7 @@ const LoginSignupCard: React.FC = () => {
             <button
               onClick={handleSignup}
               disabled={loading}
-              className="bg-orange-300 text-white cursor-pointer font-bold px-8 py-2 rounded-full disabled:opacity-50"
+              className="bg-orange-400 text-white cursor-pointer font-bold px-8 py-2 rounded-full disabled:opacity-50"
             >
               {loading ? "Signing up..." : "SIGNUP"}
             </button>

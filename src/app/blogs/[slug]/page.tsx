@@ -27,13 +27,15 @@ export default function BlogDetailsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Slug from useParams:", slug); // DEBUG LINE
+    console.log("Slug from useParams:", slug, typeof slug, Array.isArray(slug));
     if (!slug) return;
+    
     axios
       .get(`${url}/blog-get-by-slug/${slug}`)
       .then((res) => {
-        console.log("API Response:", res.data); // DEBUG LINE
+        console.log("API Response:", res.data);
         if (res.data.success) {
+          console.log("Fetched Blog Data:", res.data.data);
           setData(res.data.data);
         }
       })
@@ -47,7 +49,8 @@ export default function BlogDetailsPage() {
 
   if (!data) {
     return (
-      <h2 className="text-center text-xl text-gray-700 mt-10">
+      console.log("No blog data found for slug:", slug),
+      <h2 className="text-center text-xl text-gray-700 mt-10 pt-20">
         Blog not found
       </h2>
     );

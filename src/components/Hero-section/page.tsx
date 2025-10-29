@@ -10,6 +10,34 @@ const Hero = () => {
   const [mediaType, setMediaType] = useState("");
   const router = useRouter();
 
+  const categories = [
+    { name: "Developement", items: ["Java", "Python"] },
+    { name: "AI & ML", items: ["AI", "ML"] },
+    { name: "IT", items: ["Cloud Computing"] },
+    { name: "Design", items: ["Data Science & Analytics"] },
+    { name: "Market", items: ["Cybersecurity"] },
+    { name: "Management", items: ["DevOps & Automation"] },
+    { name: "Civil", items: ["UI/UX Design"] },
+    { name: "Animation", items: ["Blockchain"] },
+    { name: "Automation", items: ["Blockchain"] },
+    { name: "Finance", items: ["Blockchain"] },
+    { name: "Construction & mangement", items: ["Blockchain"] },
+  ];
+  const logos = [
+    { name: "Java", img: "java.png" },
+    { name: "Python", img: "python.png" },
+    { name: "AI", img: "artificial-intelligence.png" },
+    { name: "ML", img: "ml-model.png" },
+    { name: "Cloud Computing", img: "cloud-server.png" },
+    { name: "Data Science & Analytics", img: "data.png" },
+    { name: "Cybersecurity", img: "cyber-criminal.png" },
+    { name: "DevOps & Automation", img: "devops.png" },
+    { name: "UI/UX Design", img: "ux.png" },
+    { name: "Blockchain", img: "distribution.png" },
+  ];
+  const [selectedCategory, setSelectedCategory] = useState(""); // Default: no filter
+
+
   // ✅ Right section images
   const sliderImages = ["/Hero.jpg", "/1.png", "/3.jpg"];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,6 +56,13 @@ const Hero = () => {
     if (mediaType) params.append("category_name", mediaType);
     router.push(`/filters?${params.toString()}`);
   };
+
+  const filteredLogos = selectedCategory
+  ? logos.filter(logo =>
+      categories.find(cat => cat.name === selectedCategory)?.items.includes(logo.name)
+    )
+  : logos; // Show all if no category is selected
+
 
   return (
     <div className="lg:relative md:flex md:justify-between lg:grid lg:grid-cols-2 md:gap-5 lg:gap-6 items-center">
@@ -55,24 +90,6 @@ const Hero = () => {
             />
           </div>
 
-          {/* <select
-            value={mediaType}
-            onChange={(e) => setMediaType(e.target.value)}
-            className="bg-gray-50 py-1 pr-2 md:pr-1 lg:pr-8 lg:px-2 rounded-md text-[9px] md:text-[9px] lg:text-[11px] font-bold text-black cursor-pointer"
-          >
-            <option value="">Select Your Skills Type</option>
-            <option value="BillBoard">BillBoard</option>
-            <option value="Digital BillBoard">Digital BillBoard</option>
-            <option value="Transit Media">Transit Media</option>
-            <option value="Mall Media">Mall Media</option>
-            <option value="Lift Branding">Lift Branding</option>
-            <option value="Cinema Advertising">Cinema Advertising</option>
-            <option value="Metro & Train Ads">Metro & Train Ads</option>
-            <option value="Airport Media">Airport Media</option>
-            <option value="Cab/Rickshaw Branding">Cab/Rickshaw Branding</option>
-            <option value="Pole Kiosks">Pole Kiosks</option>
-          </select> */}
-
           <button
             onClick={handleSearch}
             className="cursor-pointer rounded-md bg-orange-400 px-2 md:px-6 py-1 text-white text-[9px] md:text-sm font-medium"
@@ -81,44 +98,84 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* Category Icons */}
-        <div className="grid grid-cols-5 gap-4 mt-6 border border-gray-200 shadow-[-3px_-4px_9px_1px_rgba(0,_0,_0,_0.1)] p-5 max-w-85 lg:max-w-130 ml-2 rounded-3xl text-[#070344] text-[11px] font-bold">
-          {[
-            { name: "Java", img: "java.png" },
-            { name: "Python", img: "python.png" },
-            { name: "AI", img: "artificial-intelligence.png" },
-            { name: "ML", img: "ml-model.png" },
-            { name: "Cloud Computing", img: "cloud-server.png" },
-            { name: "Data Science & Analytics", img: "data.png" },
-            { name: "Cybersecurity", img: "cyber-criminal.png" },
-            { name: "DevOps & Automation", img: "devops.png" },
-            { name: "UI/UX Design", img: "ux.png" },
-            { name: "Blockchain", img: "distribution.png" },
-          ].map((item, idx) => (
-            <Link
-              key={idx}
-              href={`/filters?category_name=${encodeURIComponent(item.name)}`}
-              className="flex flex-col items-center text-center"
+        {/* Category Selector below Search Bar */}
+        <div className="w-full md:max-w-90 lg:max-w-xl mt-4">
+          <div
+            className="
+              flex
+              flex-nowrap
+              overflow-x-auto
+              gap-2
+              md:flex-wrap
+              md:overflow-x-visible
+              scrollbar-hide
+              pb-2
+            "
+            style={{
+              WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'none', // Firefox
+              msOverflowStyle: 'none', // IE/Edge
+            }}
+          >
+            <button
+              onClick={() => setSelectedCategory("")}
+              className={`px-3 py-1 rounded-full border text-[12px] md:text-[13px] font-medium whitespace-nowrap flex-shrink-0 ${
+                !selectedCategory ? "bg-orange-400 text-white" : "bg-white text-orange-400"
+              }`}
+              style={{ minWidth: 80 }}
             >
-              <img
-                src={`/Groups/${item.img}`}
-                className="w-13 h-12 object-cover"
-                alt={item.name}
-              />
-              <p className="mt-1 text-[11px] md:text-[9px] max-w-[60px]">
-                {item.name}
-              </p>
-            </Link>
+              All
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.name}
+                onClick={() => setSelectedCategory(cat.name)}
+                className={`px-3 py-1 rounded-full border text-[12px] md:text-[13px] font-medium whitespace-nowrap flex-shrink-0 ${
+                  selectedCategory === cat.name ? "bg-orange-400 text-white" : "bg-white text-orange-400"
+                }`}
+                style={{ minWidth: 80 }}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+      <div className="flex flex-col">
+        {/* Logos Grid */}
+        <div className="grid grid-cols-5 gap-4 mt-6 min-h-[90px]">
+          {(filteredLogos.length > 0 ? filteredLogos : Array(5).fill({ name: "", img: "" })).map((item, idx) => (
+            item.name ? (
+              <Link
+                key={idx}
+                href={`/filters?category_name=${encodeURIComponent(item.name)}`}
+                className="flex flex-col items-center text-center"
+              >
+                <img
+                  src={`/Groups/${item.img}`}
+                  className="w-13 h-12 object-cover"
+                  alt={item.name}
+                />
+                <p className="mt-1 text-[11px] md:text-[9px] max-w-[60px]">{item.name}</p>
+              </Link>
+            ) : (
+              <div key={idx} className="flex flex-col items-center text-center opacity-0">
+                <div className="w-13 h-12" />
+                <p className="mt-1 text-[11px] md:text-[9px] max-w-[60px]">&nbsp;</p>
+              </div>
+            )
           ))}
         </div>
 
-        {/* Bottom Text */}
-        <div className="max-lg:hidden mt-2">
+        {/* Bottom Text (Never moves up) */}
+        <div className="mt-2">
           <p className="text-[11px] text-[#070344] pl-10 font-bold">
             Choose from over <span className="text-orange-300">100,00+</span> courses,
             trainers, and programs — all at your fingertips
           </p>
         </div>
+      </div>
+
       </div>
 
       {/* RIGHT SLIDER */}

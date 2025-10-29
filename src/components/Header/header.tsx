@@ -22,13 +22,19 @@ const Header: React.FC = () => {
   const [tokenGet, setToken] = useState<string | null>(null);
   const logout = useLogout();
 
+  {console.log("roleId:", roleId, "tokenGet:", tokenGet)}
+
+
   useEffect(() => {
     const token = localStorage.getItem("userTokenTrainerAgregator");
     if (token) {
       try {
         const decoded: DecodedToken = jwtDecode(token);
+        const parsedRoleId = Number(decoded.role_id);
         setToken(token);
-        setRoleId(decoded.role_id);
+        setRoleId(parsedRoleId);
+        // setToken(token);
+        // setRoleId(decoded.role_id);
       } catch (err) {
         console.error("Invalid token", err);
         setToken(null);
@@ -46,14 +52,15 @@ const Header: React.FC = () => {
     }`;
 
   return (
+
     <nav className="bg-white fixed w-full z-50 top-0 border-b border-gray-200">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex justify-between items-center h-16 sm:h-18 lg:h-20">
+      <div className="w-full px-2 sm:px-3 lg:px-4">
+        <div className="flex justify-between items-center h-16 sm:h-18 lg:h-20 pl-3 sm:pl-5 lg:pl-10">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
               <Image
-                src="/properties/logo.png"
+                src="/properties/fulllogo_transparent_nobuffer.png"
                 alt="Logo"
                 width={160}
                 height={60}
@@ -71,17 +78,24 @@ const Header: React.FC = () => {
               Courses
             </Link>
             {tokenGet ? (
-              roleId == 1 ? (
-                <Link href="/dashboard" className={linkClass("/dashboard")}>
-                  Dashboard
-                </Link>
-              ) : roleId == 2 ? (
-                <Link href="/dashboard" className={linkClass("/dashboard")}>
-                  Dashboard
-                </Link>
+              roleId === 1 ? (
+                <>
+                  {/* User is Trainer, show Job Poster join link only */}
+                  <Link href="/login" className={linkClass("/find-trainer")}>
+                    Job Poster
+                  </Link>
+                </>
+              ) : roleId === 2 ? (
+                <>
+                  {/* User is Job Poster, show Trainer join link only */}
+                  <Link href="/login" className={linkClass("/join-trainer")}>
+                    Join As Trainer
+                  </Link>
+                </>
               ) : null
             ) : (
               <>
+                {/* User not logged in, show both */}
                 <Link href="/login" className={linkClass("/join-trainer")}>
                   Join As Trainer
                 </Link>
@@ -90,6 +104,7 @@ const Header: React.FC = () => {
                 </Link>
               </>
             )}
+
             <Link href="/blogs" className={linkClass("/blogs")}>
               Blogs
             </Link>

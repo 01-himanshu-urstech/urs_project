@@ -5,6 +5,16 @@ import { Facebook, X, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+// You can adjust numeric values to match your backend's interpretation if needed
+const SUBJECT_OPTIONS = [
+  { label: "General Inquiry", value: 1 },
+  { label: "Become a Trainer", value: 2 },
+  { label: "Course Information", value: 3 },
+  { label: "Partnership", value: 4 },
+  { label: "Technical Support", value: 5 },
+  { label: "Other", value: 6 },
+];
+
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: "",
@@ -37,13 +47,25 @@ export default function ContactPage() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("/api/contact", {
+            const payload = {
+                name: formData.name,
+                email: formData.email,
+                phone: Number(formData.phone),
+                type: Number(formData.subject),  // <-- ensure this is a number
+                description: formData.message
+            };
+            console.log("Submitting contact form payload:", payload)
+            const response = await fetch(
+            process.env.NEXT_PUBLIC_BASE_URL + "/contact-create",
+            {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
-            });
+                body: JSON.stringify(payload),
+            }
+            );
+
 
             if (response.ok) {
                 setSubmitMessage({
@@ -371,12 +393,9 @@ export default function ContactPage() {
                                     className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-white text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff7722] focus:border-transparent outline-none transition-all"
                                 >
                                     <option value="">Select a subject</option>
-                                    <option value="general">General Inquiry</option>
-                                    <option value="trainer">Become a Trainer</option>
-                                    <option value="course">Course Information</option>
-                                    <option value="partnership">Partnership</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="other">Other</option>
+                                    {SUBJECT_OPTIONS.map(opt => (
+                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                    ))}
                                 </select>
                             </div>
 
@@ -419,7 +438,7 @@ export default function ContactPage() {
             >
                 <div className="bg-white rounded-xl shadow-xl overflow-hidden h-[300px] sm:h-[350px] md:h-[400px]">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.946651800328!2d77.34424067469004!3d28.541323188218175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce78562399a11%3A0xa7d3ecda2c6869f!2sUrsTech%20Solution!5e0!3m2!1sen!2sin!4v1761034267542!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.9400141548604!2d77.34421607464539!3d28.54152268820931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce78b77f5f567%3A0xcab493ff1b54067a!2sInfosurge%20Expert%20LLP!5e0!3m2!1sen!2sin!4v1761643153476!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -427,6 +446,8 @@ export default function ContactPage() {
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     />
+
+                    {/* <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
                 </div>
             </motion.div>
         </section>
