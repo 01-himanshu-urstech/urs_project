@@ -18,16 +18,16 @@ export default function IntroSection() {
           >
             <div className="relative w-full max-w-[320px] sm:max-w-sm md:max-w-md lg:max-w-lg">
               {/* Aspect ratio container for better alignment */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden rounded-2xl border-4 border-[#ff7722]/40 shadow-2xl">
-                <Image
-                  src="/About/heroImg.jpg"
-                  alt="Founder"
-                  fill
-                  priority={true}
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 448px, 512px"
-                />
-              </div>
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl border-4 border-[#ff7722]/40 shadow-2xl">
+  <Image
+    src="/About/heroImg.jpg"
+    alt="Founder"
+    fill
+    priority={true}
+    className="object-cover hover:scale-105 transition-transform duration-500"
+  />
+</div>
+
             </div>
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function IntroSection() {
             </p>
 
             <h1 className="font-bold text-gray-900 mb-4 sm:mb-5 lg:mb-6 leading-tight text-2xl sm:text-3xl lg:text-4xl">
-              Your Trusted <br className="hidden md:block" /> Partner in Trainer Aggregator
+              Your Trusted <br className="hidden md:block" /> Skill Strategix
             </h1>
 
             <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-7 lg:mb-8">
@@ -58,7 +58,7 @@ export default function IntroSection() {
                   </svg>
                 </span>
                 <span>
-                  At <b>Lorem ipsum dolor sit amet consectetur adipisicing elit.</b> Praesentium temporibus aspernatur consequatur non, totam adipisci dicta cumque enim necessitatibus? Mollitia commodi dolorem perspiciatis repellat aliquid quibusdam eos suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  “We believe that learning should be accessible, personalized, and empowering,” said a spokesperson from InfosurgeExpert. “SKILL STRATEGIX is our answer to the growing demand for credible, flexible, and impactful skill-building experiences.”
                 </span>
               </p>
               
@@ -69,7 +69,7 @@ export default function IntroSection() {
                   </svg>
                 </span>
                 <span>
-                  <b>Lorem ipsum dolor sit amet</b> – Let&apos;s build a better future together.
+                   – Let&apos;s build a better future together.
                 </span>
               </p>
             </div>

@@ -25,7 +25,7 @@ export default function TrainersCarousel() {
             id: 2,
             name: "Johnii Doe",
             title: "lorem ispimst",
-            image: "/About/trainer.jpg",
+            image: "/About/trainer-1.png",
             description: "lorem ipsum ashkhjcaksb bjsnbk bja  hsb k solen iti?. lorm dolorin levels."
         },
         {

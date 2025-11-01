@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import IntroSection from "../../components/About/IntroSection"
 import Vision from "../../components/About/Vision"
+import Mision from "../../components/About/Mision"
 import CoreValues from "../../components/About/CoreValues"
 import CoreTeam from "../../components/About/CoreTeam";
 import PartnersCarousel from "../../components/About/Partner";
@@ -47,6 +48,9 @@ export default function AboutPage() {
                 {/* introduction section */}
                 <IntroSection/>
                 
+                {/* mision section  */}
+                {/* <Mision/> */}
+
                 {/* Vision Section */}
                 <Vision/>
                 
@@ -63,12 +67,12 @@ export default function AboutPage() {
 
 
                 {/* Trainers Carousel - NEW */}
-                <TrainersCarousel />
+                {/* <TrainersCarousel /> */}
 
 
                 {/* core Team */}
                 {/* <CoreTeam /> */}
-                <Team/>
+                {/* <Team/> */}
 
                 {/* Partners Section */}
                 <PartnersCarousel />

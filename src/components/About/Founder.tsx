@@ -17,7 +17,7 @@ export default function Founder() {
                 <svg className="mb-2" fill="white" viewBox="0 0 32 16" width="100" height="40">
                 <path d="M2,10 L6,10 L8,12 L10,6 L14,7 L18,5 L22,8 L24,6 L30,8" stroke="#fff" strokeWidth="3" fill="none"/>
                 </svg>
-                <div className="text-white font-extrabold text-3xl sm:text-4xl mb-1 drop-shadow">18+</div>
+                <div className="text-white font-extrabold text-3xl sm:text-4xl mb-1 drop-shadow">14+</div>
                 <div className="text-white text-sm sm:text-base font-bold leading-tight text-center drop-shadow">Years Of Experience</div>
             </div>
             </div>
@@ -29,13 +29,16 @@ export default function Founder() {
                 <h3 className="text-[#ff4422] font-semibold tracking-widest uppercase text-sm sm:text-base">About Founder</h3>
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 tracking-tight text-[#ff7722] drop-shadow-lg">
-                Abc
+                Deepika Bansal
             </h1>
             <h2 className="text-sm sm:text-base md:text-md font-medium text-gray-700 mb-4">
-                Founder & CEO at <span className="text-[#ff4422] font-bold">Trainer Agregator</span>
+                Founder & CEO at <span className="text-[#ff4422] font-bold">Skill Strategix</span>
             </h2>
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi reprehenderit architecto magni, consectetur molestias ullam deleniti. Neque, illo facere provident ratione dolorum, molestias repellendus magni eum rem ex vero? ... <span className="text-[#ff7722] font-semibold">Lorem ipsum dolor sit</span> ... <span className="text-[#ff4422] font-semibold">18 years</span> ... more details here.
+            <p className="text-gray-700 leading-relaxed text-sm sm:text-base">        
+Co-founder & Managing Director | InfoSurge Expert LLP
+CFA | MBA | Entrepreneur | Mother of Two
+Deepika Bansal is a visionary entrepreneur and co-founder of InfoSurge Expert LLP, where she leads with purpose, innovation, and strategic foresight. With a strong academic foundation as a Chartered Financial Analyst (CFA) and MBA, she brings analytical depth and business acumen to every venture.
+Her journey spans over 14 years across market research, consulting, and academic mentoring. As a leader, she champions digital transformation, fosters a culture of continuous learning, and empowers teams to build scalable, tech-driven solutions.<span className="text-[#ff7722] font-semibold"> Deepika’s entrepreneurial mindset is rooted in adaptability, creativity, and a commitment to solving real-world challenges — </span> all while gracefully balancing her role as a devoted mother of two<span className="text-[#ff4422] font-semibold"></span> 
             </p>
             </div>
         </div>

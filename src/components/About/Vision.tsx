@@ -18,7 +18,7 @@ export default function IntroSection() {
             Our Vision
           </h1>
           <p className="text-gray-700 text-base sm:text-lg lg:text-[1.0625rem] leading-relaxed">
-            To create products that inspire creativity, improve productivity, and drive sustainable growth with a human-centered design approach. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, nemo. Vero facilis recusandae quam tenetur, qui quaerat quas esse. Delectus voluptate ea quam earum quaerat pariatur eveniet, necessitatibus exercitationem esse!
+            To be India’s leading platform for accessible , industry aligned skill development , empowering youth from every community with expert led training that bridges gap between classroom knowledge and and real-world application
           </p>
         </motion.div>
 

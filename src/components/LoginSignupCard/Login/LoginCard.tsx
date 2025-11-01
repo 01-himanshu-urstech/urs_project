@@ -74,7 +74,7 @@ const LoginSignupCard: React.FC = () => {
           </p>
           <Link
             href="/signup"
-            className="bg-white text-orange-300 font-bold px-8 py-2 rounded-full"
+            className="bg-white text-orange-500 font-bold px-8 py-2 rounded-full"
           >
             SIGNUP
           </Link>
@@ -85,7 +85,7 @@ const LoginSignupCard: React.FC = () => {
       {/* Right Side (Login Form) */}
       <div className="w-1/2 bg-white px-12 py-16 flex flex-col justify-center">
         <h2 className="text-3xl font-bold text-[#0B0534] mb-9">
-          Log in to <span className="text-orange-300">Skill Strategix</span>
+          Log in to <span className="text-orange-500">Skill Strategix</span>
         </h2>
        
 
@@ -111,7 +111,7 @@ const LoginSignupCard: React.FC = () => {
         <button
           onClick={handleLogin}
           disabled={loading}
-          className="bg-orange-300 text-white cursor-pointer font-bold px-8 py-2 rounded-full disabled:opacity-50"
+          className="bg-orange-500 text-white cursor-pointer font-bold px-8 py-2 rounded-full disabled:opacity-50"
         >
           {loading ? "Logging in..." : "LOGIN"}
         </button>
